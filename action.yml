@@ -1,6 +1,6 @@
-name: 'C++ Style Check'
-description: 'Runs C++ style check with Uncrustify'
-author: 'coleaeason'
+name: 'Uncrustify C# Code Formatting'
+description: 'Runs C# code format with Uncrustify'
+author: 'mibmo'
 inputs: 
   configPath:
     description: 'Alternate configuration file to use'
