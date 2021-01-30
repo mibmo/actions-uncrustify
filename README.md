@@ -1,11 +1,10 @@
-# Uncrustify C++ Github Action
-Runs an [uncrustify](https://github.com/uncrustify/uncrustify) config against C++ implementation and header files in a given repo. 
+# Uncrustify C# Github Action
+**Note:** fork of [coleaeason/actions-uncrustify](https://github.com/coleaeason/actions-uncrustify), changes it to format C# instead.
+
+Runs an [uncrustify](https://github.com/uncrustify/uncrustify) config against C# implementation and header files in a given repo. 
 
 The script looks for the following file endings:
-* .cpp
-* .cxx
-* .h
-* .hpp
+* .cs
 
 Only runs on files that have been added or modified in a given commit.
 
@@ -18,12 +17,12 @@ on: [ pull_request ]
 jobs:
   cpp_style_check:
     runs-on: ubuntu-latest
-    name: Check C++ Style
+    name: Check C# Style
     steps:
     - name: Checkout this commit
       uses: actions/checkout@v2
     - name: Run style checks
-      uses: coleaeason/actions-uncrustify@v1
+      uses: mibmo/actions-uncrustify@v1
 ```
 
 Use a specific configuration file via input: 
@@ -33,12 +32,12 @@ on: [ pull_request ]
 jobs:
   cpp_style_check:
     runs-on: ubuntu-latest
-    name: Check C++ Style
+    name: Check C# Style
     steps:
     - name: Checkout this commit
       uses: actions/checkout@v2
     - name: Run style checks
-      uses: coleaeason/actions-uncrustify@v1
+      uses: mibmo/actions-uncrustify@v1
       with: 
         configPath: 'myConfig.cfg'
 ```
