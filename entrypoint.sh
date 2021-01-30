@@ -36,7 +36,7 @@ while read -r FILENAME; do
 
     # Allow failures here so we can capture exit status
     set +e
-    OUT=$(uncrustify --check${CONFIG} -f ${FILENAME} -l CPP 2>&1 | grep -e ^FAIL -e ^PASS | awk '{ print $2 }'; exit ${PIPESTATUS[0]})
+    OUT=$(uncrustify --check${CONFIG} -f ${FILENAME} -l CS 2>&1 | grep -e ^FAIL -e ^PASS | awk '{ print $2 }'; exit ${PIPESTATUS[0]})
     RETURN_VAL=$?
 
     # Stop allowing failures again
@@ -49,6 +49,6 @@ while read -r FILENAME; do
     else
         echo -e "${GREEN}${OUT} passed style checks.${RESET}"
     fi
-done < <(git diff --name-status --diff-filter=AM origin/${DEFAULT_BRANCH}...${BRANCH_NAME} -- '*.cpp' '*.h' '*.hpp' '*.cxx' | awk '{ print $2 }' )
+done < <(git diff --name-status --diff-filter=AM origin/${DEFAULT_BRANCH}...${BRANCH_NAME} -- '*.cs' | awk '{ print $2 }' )
 
 exit $EXIT_VAL
